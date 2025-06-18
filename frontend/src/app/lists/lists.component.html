@@ -1,129 +1,151 @@
-<style>
-  .form-container {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #2196F3;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-  }
-
-  .form-container h2 {
-    text-align: center;
-    color: #2196F3;
-  }
-
-  label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-  .song-group {
-    background-color: #e3f2fd;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 15px;
-  }
-
-  button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #2196F3;
-    color: white;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #1976D2;
-  }
-
-  hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  table {
-    width: 90%;
-    margin: 30px auto;
-    border-collapse: collapse;
-    box-shadow: 0px 0px 10px #ccc;
-  }
-
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-
-  th {
-    background-color: #2196F3;
-    color: white;
-  }
-
-  ul {
-    padding-left: 18px;
-  }
-</style>
-
-<div class="form-container">
-  <h2>Crear Nueva Lista</h2>
-
-  <form (ngSubmit)="crearLista()">
-    <label>Nombre de la Lista:</label>
-    <input type="text" [(ngModel)]="nuevaLista.nombre" name="nombre" required>
-
-    <label>Descripción:</label>
-    <textarea [(ngModel)]="nuevaLista.descripcion" name="descripcion" required></textarea>
-
-    <div *ngFor="let cancion of nuevaLista.canciones; let i = index" class="song-group">
-      <h4>Canción {{ i + 1 }}</h4>
-      <input [(ngModel)]="cancion.titulo" name="titulo{{i}}" placeholder="Título" required />
-      <input [(ngModel)]="cancion.artista" name="artista{{i}}" placeholder="Artista" required />
-      <input [(ngModel)]="cancion.album" name="album{{i}}" placeholder="Álbum" />
-      <input [(ngModel)]="cancion.anno" name="anno{{i}}" placeholder="Año" />
-      <input [(ngModel)]="cancion.genero" name="genero{{i}}" placeholder="Género" />
-
-      <button type="button" (click)="eliminarCancion(i)" style="background-color: crimson;">Eliminar Canción</button>
+<mat-card class="form-container">
+    <div class="header-actions">
+        <button mat-raised-button color="warn" (click)="logout()" class="logout-btn">
+            <mat-icon>logout</mat-icon>
+            Cerrar Sesión
+        </button>
     </div>
+    <div class="form-section">
+        <mat-card class="formulario">
+            <mat-card-header>
+                <mat-card-title class="form-title">
+                    <mat-icon class="title-icon">playlist_add</mat-icon>
+                    Crear Nueva Lista de Reproducción
+                </mat-card-title>
+            </mat-card-header>
 
-    <button type="button" (click)="agregarCancion()">Agregar Canción</button>
-    <button type="submit" style="float: right;">Guardar Lista</button>
-  </form>
-</div>
+            <mat-card-content>
+                <div class="form-fields">
+                    <mat-form-field appearance="fill" class="campo">
+                        <mat-label>Nombre de la lista</mat-label>
+                        <input matInput [(ngModel)]="nuevaLista.nombre">
+                        <mat-icon matSuffix>queue_music</mat-icon>
+                    </mat-form-field>
 
-<hr />
+                    <mat-form-field appearance="fill" class="campo">
+                        <mat-label>Descripción</mat-label>
+                        <textarea matInput [(ngModel)]="nuevaLista.descripcion" rows="2"></textarea>
+                        <mat-icon matSuffix>description</mat-icon>
+                    </mat-form-field>
 
-<h2 style="text-align: center; color: #2196F3;">Listas de Reproducción</h2>
-<table *ngIf="listas.length > 0">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Canciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let lista of listas">
-      <td>{{ lista.nombre }}</td>
-      <td>{{ lista.descripcion }}</td>
-      <td>
-        <ul>
-          <li *ngFor="let cancion of lista.canciones">
-            {{ cancion.titulo }} - {{ cancion.artista }}
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+                    <mat-divider></mat-divider>
+
+                    <div class="songs-header">
+                        <h3>
+                            <mat-icon class="songs-icon">music_note</mat-icon>
+                            Canciones
+                        </h3>
+                        <button mat-raised-button color="primary" (click)="agregarCancion()" class="add-song-btn">
+                            <mat-icon>add</mat-icon>
+                            Añadir Canción
+                        </button>
+                    </div>
+
+                    <div *ngFor="let cancion of nuevaLista.canciones; let i = index" class="song-row">
+                        <mat-card class="song-card">
+                            <div class="song-fields">
+                                <mat-form-field appearance="outline" class="song-field">
+                                    <mat-label>Título</mat-label>
+                                    <input matInput [(ngModel)]="cancion.titulo">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="song-field">
+                                    <mat-label>Artista</mat-label>
+                                    <input matInput [(ngModel)]="cancion.artista">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="song-field">
+                                    <mat-label>Álbum</mat-label>
+                                    <input matInput [(ngModel)]="cancion.album">
+                                </mat-form-field>
+
+                                <div class="song-details">
+                                    <mat-form-field appearance="outline" class="detail-field">
+                                        <mat-label>Año</mat-label>
+                                        <input matInput [(ngModel)]="cancion.anno" type="number">
+                                    </mat-form-field>
+
+                                    <mat-form-field appearance="outline" class="detail-field">
+                                        <mat-label>Género</mat-label>
+                                        <input matInput [(ngModel)]="cancion.genero">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <button mat-icon-button (click)="eliminarCancion(i)" class="delete-btn"
+                                matTooltip="Eliminar canción" aria-label="Eliminar canción">
+                                <mat-icon class="delete-icon">delete</mat-icon>
+                            </button>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions class="form-actions">
+                <button mat-raised-button color="accent" (click)="crearLista()" class="save-btn">
+                    <mat-icon>save</mat-icon>
+                    Guardar Lista
+                </button>
+                <button mat-stroked-button color="warn"
+                    (click)="nuevaLista = { nombre: '', descripcion: '', canciones: [] }" class="cancel-btn">
+                    <mat-icon>clear</mat-icon>
+                    Cancelar
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="tabla">
+            <mat-card-header>
+                <mat-card-title class="table-title">
+                    <mat-icon class="title-icon">playlist_play</mat-icon>
+                    Tus Listas de Reproducción
+                </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div *ngIf="dataSource.data.length === 0" class="empty-state">
+                    <mat-icon class="empty-icon">playlist_remove</mat-icon>
+                    <p>Aún no has creado ninguna lista de reproducción</p>
+                </div>
+
+                <div *ngIf="dataSource.data.length > 0" class="playlists-container">
+                    <mat-accordion>
+                        <mat-expansion-panel *ngFor="let lista of dataSource.data; let i = index"
+                            class="playlist-panel">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title class="playlist-title">
+                                    {{ lista.nombre }}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    {{ lista.canciones.length }} canciones
+
+                                    <button mat-icon-button color="warn" (click)="eliminarLista(lista.nombre)"
+                                        matTooltip="Eliminar lista">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+
+                            <!-- Descripción y canciones -->
+                            <div class="playlist-description">
+                                <p>{{ lista.descripcion || 'Sin descripción' }}</p>
+                            </div>
+                            <mat-list class="songs-list">
+                                <mat-list-item *ngFor="let cancion of lista.canciones" class="song-item">
+                                    <mat-icon matListItemIcon>music_note</mat-icon>
+                                    <div matListItemTitle>{{ cancion.titulo }}</div>
+                                    <div matListItemLine class="song-info">
+                                        {{ cancion.artista }} • {{ cancion.album }} • {{ cancion.anno }} • {{
+                                        cancion.genero }}
+                                    </div>
+                                </mat-list-item>
+                            </mat-list>
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</mat-card>
