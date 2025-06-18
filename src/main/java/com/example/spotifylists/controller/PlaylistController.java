@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
 import java.util.HashMap;
@@ -20,11 +21,8 @@ public class PlaylistController {
     private final PlaylistService playlistService;
 
     @PostMapping
-    public ResponseEntity<?> crearPlaylist(
-            @Valid @RequestBody Playlist playlist,
-            BindingResult bindingResult) {  // <-- Añade BindingResult
+    public ResponseEntity<?> crearPlaylist(@Valid @RequestBody Playlist playlist, BindingResult bindingResult) {
 
-        // 1. Primero valida las anotaciones (@NotBlank, @Pattern)
         if (bindingResult.hasErrors()) {
             Map<String, String> errores = new HashMap<>();
             bindingResult.getFieldErrors().forEach(error -> {
@@ -32,15 +30,13 @@ public class PlaylistController {
             });
             return ResponseEntity.badRequest().body(errores);
         }
-
-        // 2. Luego aplica tu validación de negocio
         try {
             Playlist nueva = playlistService.crearPlaylist(playlist);
             return ResponseEntity.created(URI.create("/lists/" + nueva.getNombre()))
                     .body(nueva);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(
-                    Map.of("error", e.getMessage()) // Formato consistente con las validaciones
+                    Map.of("error", e.getMessage())
             );
         }
     }
@@ -64,8 +60,11 @@ public class PlaylistController {
         try {
             playlistService.eliminarPlaylist(nombre);
             return ResponseEntity.noContent().build();
+        } catch (ResponseStatusException e) {
+            return ResponseEntity.status(e.getStatusCode()).build();
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
     }
+
 }

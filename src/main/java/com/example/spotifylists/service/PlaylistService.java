@@ -3,7 +3,9 @@ package com.example.spotifylists.service;
 import com.example.spotifylists.model.Playlist;
 import com.example.spotifylists.repository.PlaylistRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,11 +31,12 @@ public class PlaylistService {
                 .orElseThrow(() -> new RuntimeException("Lista no encontrada"));
     }
 
-        public void eliminarPlaylist(String nombre) {
-            if (!playlistRepository.existsById(nombre)) {
-                throw new RuntimeException("Playlist no encontrada"); // Esto activará el 404
-            }
-            playlistRepository.deleteById(nombre);
+    public void eliminarPlaylist(String nombre) {
+        if (!playlistRepository.existsById(nombre)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Playlist '" + nombre + "' no existe");
         }
+
+        playlistRepository.deleteById(nombre);
+    }
     }
 

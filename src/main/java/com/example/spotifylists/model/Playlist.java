@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Playlist {
     @Id
     @Pattern(regexp = "^[a-zA-Z0-9 ]+$", message = "El nombre no puede estar vacío o ser null")
