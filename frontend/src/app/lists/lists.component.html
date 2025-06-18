@@ -1,4 +1,129 @@
-<h2>Mis Listas</h2>
-<ul>
-  <li *ngFor="let item of listas">{{ item.name }}</li>
-</ul>
+<style>
+  .form-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #2196F3;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .form-container h2 {
+    text-align: center;
+    color: #2196F3;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .song-group {
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #1976D2;
+  }
+
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 10px #ccc;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #2196F3;
+    color: white;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+</style>
+
+<div class="form-container">
+  <h2>Crear Nueva Lista</h2>
+
+  <form (ngSubmit)="crearLista()">
+    <label>Nombre de la Lista:</label>
+    <input type="text" [(ngModel)]="nuevaLista.nombre" name="nombre" required>
+
+    <label>Descripción:</label>
+    <textarea [(ngModel)]="nuevaLista.descripcion" name="descripcion" required></textarea>
+
+    <div *ngFor="let cancion of nuevaLista.canciones; let i = index" class="song-group">
+      <h4>Canción {{ i + 1 }}</h4>
+      <input [(ngModel)]="cancion.titulo" name="titulo{{i}}" placeholder="Título" required />
+      <input [(ngModel)]="cancion.artista" name="artista{{i}}" placeholder="Artista" required />
+      <input [(ngModel)]="cancion.album" name="album{{i}}" placeholder="Álbum" />
+      <input [(ngModel)]="cancion.anno" name="anno{{i}}" placeholder="Año" />
+      <input [(ngModel)]="cancion.genero" name="genero{{i}}" placeholder="Género" />
+
+      <button type="button" (click)="eliminarCancion(i)" style="background-color: crimson;">Eliminar Canción</button>
+    </div>
+
+    <button type="button" (click)="agregarCancion()">Agregar Canción</button>
+    <button type="submit" style="float: right;">Guardar Lista</button>
+  </form>
+</div>
+
+<hr />
+
+<h2 style="text-align: center; color: #2196F3;">Listas de Reproducción</h2>
+<table *ngIf="listas.length > 0">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Canciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lista of listas">
+      <td>{{ lista.nombre }}</td>
+      <td>{{ lista.descripcion }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let cancion of lista.canciones">
+            {{ cancion.titulo }} - {{ cancion.artista }}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

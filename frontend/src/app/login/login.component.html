@@ -1,7 +1,23 @@
-<h2>Login</h2>
-<form (submit)="login(); $event.preventDefault()">
-  <input type="text" placeholder="Usuario" [(ngModel)]="username" name="user" required />
-  <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="pass" required />
-  <button type="submit">Ingresar</button>
-</form>
-<p *ngIf="error" style="color:red">{{ error }}</p>
+<div class="login-container">
+  <h2>🎵 Iniciar Sesión</h2>
+
+  <form (ngSubmit)="login()" class="login-form">
+    <input
+      type="text"
+      placeholder="Usuario"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+    <input
+      type="password"
+      placeholder="Contraseña"
+      [(ngModel)]="password"
+      name="password"
+      required
+    />
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

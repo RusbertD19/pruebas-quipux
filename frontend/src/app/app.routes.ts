@@ -17,7 +17,8 @@ import { ListsComponent } from './lists/lists.component';
     BrowserModule,
     FormsModule,            
     HttpClientModule,       
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
