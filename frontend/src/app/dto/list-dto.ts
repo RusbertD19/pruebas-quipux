@@ -1,7 +1,7 @@
-import { CancionDTO } from "./cancionDTO";
+import { CancionDTO } from "./cancion-dto";
 
 export interface ListDTO {
-   id?: number;
+  id?: number;
   nombre: string;
   descripcion: string;
   canciones: CancionDTO[];

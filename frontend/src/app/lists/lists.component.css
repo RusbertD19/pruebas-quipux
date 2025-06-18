@@ -1,282 +1,317 @@
 /* Estilos generales */
 .form-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 12px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
 }
 
 .form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 /* Estilos para el formulario */
 .formulario {
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .form-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #3f51b5;
-  display: flex;
-  align-items: center;
-  padding: 16px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #3f51b5;
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
 }
 
 .title-icon {
-  margin-right: 10px;
-  color: #3f51b5;
+    margin-right: 10px;
+    color: #3f51b5;
 }
 
 .form-fields {
-  padding: 0 16px;
+    padding: 0 16px;
 }
 
 .campo {
-  width: 100%;
-  margin: 16px 0;
+    width: 100%;
+    margin: 16px 0;
+
 }
 
 /* Estilos para las canciones */
 .songs-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 24px 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0 16px;
 }
 
 .songs-header h3 {
-  display: flex;
-  align-items: center;
-  color: #3f51b5;
-  margin: 0;
+    display: flex;
+    align-items: center;
+    color: #3f51b5;
+    margin: 0;
 }
 
 .songs-icon {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 .add-song-btn {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .song-row {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .song-card {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  background-color: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .song-fields {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .song-field {
-  flex: 1;
-  min-width: 200px;
+    flex: 1;
+    min-width: 200px;
 }
 
 .song-details {
-  display: flex;
-  gap: 12px;
-  width: 100%;
+    display: flex;
+    gap: 12px;
+    width: 100%;
 }
 
 .detail-field {
-  flex: 1;
-  min-width: 120px;
+    flex: 1;
+    min-width: 120px;
 }
 
 .delete-btn {
-  margin-left: 12px;
+    margin-left: 12px;
 }
 
 /* Estilos para las acciones del formulario */
 .form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: 16px;
-  border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px;
+    border-top: 1px solid #eee;
 }
 
-.save-btn, .cancel-btn {
-  display: flex;
-  align-items: center;
+.save-btn,
+.cancel-btn {
+    display: flex;
+    align-items: center;
 }
 
 /* Estilos para la tabla/listado de playlists */
 .tabla {
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .table-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #3f51b5;
-  display: flex;
-  align-items: center;
-  padding: 16px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #3f51b5;
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
 }
 
 .empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  color: #757575;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #757575;
+    text-align: center;
 }
 
 .empty-icon {
-  font-size: 48px;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 16px;
-  color: #bdbdbd;
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    color: #bdbdbd;
 }
 
 .playlists-container {
-  margin-top: 16px;
+    margin-top: 16px;
 }
 
 .playlist-panel {
-  margin-bottom: 8px;
-  border-radius: 8px !important;
+    margin-bottom: 8px;
+    border-radius: 8px !important;
 }
 
 .playlist-title {
-  font-weight: 500;
-  color: #3f51b5;
+    font-weight: 500;
+    color: #3f51b5;
 }
 
 .playlist-description {
-  padding: 8px 0;
-  color: #616161;
+    padding: 8px 0;
+    color: #616161;
 }
 
 .song-row {
-  margin-bottom: 16px;
-  transition: all 0.3s ease;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
 }
 
 .song-row:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
 .song-card {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid #3f51b5;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #3f51b5;
 }
 
 .song-fields {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .song-field {
-  flex: 1;
-  min-width: 200px;
+    flex: 1;
+    min-width: 200px;
 }
 
 .song-field mat-icon {
-  color: #3f51b5;
-  opacity: 0.7;
+    color: #3f51b5;
+    opacity: 0.7;
 }
 
 .song-details {
-  display: flex;
-  gap: 12px;
-  width: 100%;
+    display: flex;
+    gap: 12px;
+    width: 100%;
 }
 
 .detail-field {
-  flex: 1;
-  min-width: 120px;
+    flex: 1;
+    min-width: 120px;
 }
 
 .delete-btn {
-  margin-left: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 12px;
-  border-radius: 20px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(244, 67, 54, 0.3);
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(244, 67, 54, 0.3);
 }
 
 .delete-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 3px 8px rgba(244, 67, 54, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(244, 67, 54, 0.4);
 }
 
 .delete-btn mat-icon {
-  font-size: 20px;
+    font-size: 20px;
 }
+
 .logout-btn {
-  margin-top: 0;    
-  position: absolute; 
-  top: 20px;      
-  right: 20px;         
+    margin-top: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
 }
 
 /* Efecto al eliminar */
 .song-row.removing {
-  animation: fadeOutRight 0.3s forwards;
+    animation: fadeOutRight 0.3s forwards;
 }
 
 @keyframes fadeOutRight {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(50px);
-  }
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
 }
+
 /* Responsive */
 @media (min-width: 992px) {
-  .form-section {
-    flex-direction: row;
-  }
-  
-  .formulario {
-    flex: 1;
-    margin-right: 20px;
-  }
-  
-  .tabla {
-    flex: 1;
-  }
-  .icono-rojo {
-  color: red !important;
-}
+    .form-section {
+        flex-direction: row;
+    }
+
+    .formulario {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .tabla {
+        flex: 1;
+    }
+
+    .icono-rojo {
+        color: red !important;
+    }
+
+    .titulo-musical-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .titulo-musical {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+
+
+    /* Tamaños normales (pantalla grande) */
+    .icono-disco {
+        width: 30px;
+        height: 25px;
+    }
+
+    .icono-notas {
+        width: 40px;
+        height: 40px;
+    }
 
 }

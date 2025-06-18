@@ -14,8 +14,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ListDTO } from '../dto/list-dto.component';
-import { CancionDTO } from '../dto/cancionDTO';
+import { ListDTO } from '../dto/list-dto';
+import { CancionDTO } from '../dto/cancion-dto';
 import { ConfirmDialogComponent } from '../confirm-dialog.component/confirm-dialog.component';
 
 @Component({

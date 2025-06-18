@@ -1,9 +1,15 @@
+<div class="titulo-musical-container">
+  <div class="titulo-musical">
+    <h2 class="titulo-texto">Spotify Music</h2>
+  </div>
+</div>
+  <button mat-raised-button color="warn" (click)="logout()" class="logout-btn">
+    <mat-icon>logout</mat-icon>
+    Cerrar Sesión
+  </button>
 <mat-card class="form-container">
     <div class="header-actions">
-        <button mat-raised-button color="warn" (click)="logout()" class="logout-btn">
-            <mat-icon>logout</mat-icon>
-            Cerrar Sesión
-        </button>
+
     </div>
     <div class="form-section">
         <mat-card class="formulario">
@@ -72,8 +78,8 @@
                                 </div>
                             </div>
 
-                            <button mat-icon-button (click)="eliminarCancion(i)" class="d"
-                                matTooltip="Eliminar canción" aria-label="Eliminar canción">
+                            <button mat-icon-button (click)="eliminarCancion(i)" class="d" matTooltip="Eliminar canción"
+                                aria-label="Eliminar canción">
                                 <mat-icon class="icono-rojo">delete</mat-icon>
                             </button>
                         </mat-card>
