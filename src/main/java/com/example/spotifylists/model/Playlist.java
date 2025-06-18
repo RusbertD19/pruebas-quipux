@@ -26,6 +26,6 @@ public class Playlist {
     private String descripcion;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @Valid  // Valida también las canciones
+    @Valid
     private List<Cancion> canciones = new ArrayList<>();
 }
