@@ -57,7 +57,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of("http://localhost:4200")); // Origen del frontend
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true); // Si usas cookies o token con credenciales
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

@@ -20,7 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Playlist {
     @Id
-    @Pattern(regexp = "^[a-zA-Z0-9 ]+$", message = "El nombre no puede estar vacío o ser null")
+    @NotBlank(message = "El nombre no puede estar vacío o ser solo espacios")
+    @Pattern(regexp = "^[a-zA-ZÁÉÍÓÚáéíóúÑñ0-9 ]+$", message = "El nombre solo puede contener letras, números y espacios")
     private String nombre;
 
     private String descripcion;

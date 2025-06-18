@@ -16,7 +16,7 @@ public class PlaylistService {
     private final PlaylistRepository playlistRepository;
 
     public Playlist crearPlaylist(Playlist playlist) {
-        if (playlist.getNombre() == null || playlist.getNombre().isEmpty()) {
+        if (playlist.getNombre() == null || playlist.getNombre().trim().isBlank()) {
             throw new IllegalArgumentException("Nombre no válido");
         }
         return playlistRepository.save(playlist);

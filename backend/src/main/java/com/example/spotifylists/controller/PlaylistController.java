@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import java.net.URI;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +23,6 @@ public class PlaylistController {
 
     @PostMapping
     public ResponseEntity<?> crearPlaylist(@Valid @RequestBody Playlist playlist, BindingResult bindingResult) {
-
         if (bindingResult.hasErrors()) {
             Map<String, String> errores = new HashMap<>();
             bindingResult.getFieldErrors().forEach(error -> {
@@ -31,14 +32,14 @@ public class PlaylistController {
         }
         try {
             Playlist nueva = playlistService.crearPlaylist(playlist);
-            return ResponseEntity.created(URI.create("/lists/" + nueva.getNombre()))
+            String nombreCodificado = URLEncoder.encode(nueva.getNombre(), StandardCharsets.UTF_8);
+            return ResponseEntity.created(URI.create("/lists/" + nombreCodificado))
                     .body(nueva);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(
-                    Map.of("error", e.getMessage())
-            );
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }
+
 
     @GetMapping
     public List<Playlist> obtenerTodas() {
