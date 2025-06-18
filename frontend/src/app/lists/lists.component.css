@@ -240,10 +240,10 @@
   font-size: 20px;
 }
 .logout-btn {
-  margin-top: 0;       /* Elimina cualquier espacio adicional */
-  position: absolute;  /* Lo posiciona de forma absoluta */
-  top: 20px;           /* Ajusta el valor según cuánto quieras subirlo */
-  right: 20px;         /* Lo mantiene alineado a la derecha si lo necesitas */
+  margin-top: 0;    
+  position: absolute; 
+  top: 20px;      
+  right: 20px;         
 }
 
 /* Efecto al eliminar */
