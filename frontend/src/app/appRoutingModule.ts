@@ -1,5 +1,5 @@
-// src/app/app.config.ts
-import { provideRouter, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ListsComponent } from './lists/lists.component';
 
@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'lists', component: ListsComponent }
 ];
 
-export const appConfig = [
-  provideRouter(routes)
-];
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
