@@ -22,7 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule, // Necesario para Angular Material
+    BrowserAnimationsModule, 
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
