@@ -275,4 +275,8 @@
   .tabla {
     flex: 1;
   }
+  .icono-rojo {
+  color: red !important;
+}
+
 }

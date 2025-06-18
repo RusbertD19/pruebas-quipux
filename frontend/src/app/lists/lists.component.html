@@ -72,9 +72,9 @@
                                 </div>
                             </div>
 
-                            <button mat-icon-button (click)="eliminarCancion(i)" class="delete-btn"
+                            <button mat-icon-button (click)="eliminarCancion(i)" class="d"
                                 matTooltip="Eliminar canción" aria-label="Eliminar canción">
-                                <mat-icon class="delete-icon">delete</mat-icon>
+                                <mat-icon class="icono-rojo">delete</mat-icon>
                             </button>
                         </mat-card>
                     </div>
@@ -119,10 +119,11 @@
                                 <mat-panel-description>
                                     {{ lista.canciones.length }} canciones
 
-                                    <button mat-icon-button color="warn" (click)="eliminarLista(lista.nombre)"
+                                    <button mat-icon-button (click)="eliminarLista(lista.nombre)"
                                         matTooltip="Eliminar lista">
-                                        <mat-icon>delete</mat-icon>
+                                        <mat-icon class="icono-rojo">delete</mat-icon>
                                     </button>
+
 
                                 </mat-panel-description>
                             </mat-expansion-panel-header>
